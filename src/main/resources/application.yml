@@ -1,0 +1,34 @@
+app:
+  name: banking-api
+  version: 1.0.0-SNAPSHOT
+  env: DEV
+
+home:
+  path: /home/nambiema/Documents/dev_config/.credential
+
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: ${DATABASE_BANK_URL}
+    username: nasser
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  config:
+    import:
+      optional:file:${home.path}\postgres.DEV.yaml
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %highlight(%-5level) %cyan(%logger{15}) - %msg%n"
+  level:
+    com:
+      nwn:
+        bank: DEBUG
