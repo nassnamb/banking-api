@@ -2,13 +2,14 @@
 
 ```mermaid
 graph TD
-    A[Frontend] -->|Demande| B[API Gateway]
-    B --> C[Core Banking]
-    B --> D[Credit Service]
-    D --> E[(Credit DB)]
-    D --> F[Scoring API]
-    C --> D
-    C --> G[(Core Banking DB)]
+    A[Frontend] -->|Requêtes| B[API Gateway]
+    B -->|Route| C[Core Banking]
+    C -->|Stockage| D[(Core DB<br>PostgreSQL OLTP)]
+    B -->|Délègue| E[Credit Service]
+    E -->|Stockage| F[(Credit DB<br>MongoDB/PostgreSQL)]
+    E -->|Consulte| C
+    C -->|Event Streaming| G[(IBM MQ)]
+    G -->|S'abonne| E
 ```
 
 
