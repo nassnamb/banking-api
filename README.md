@@ -1,4 +1,6 @@
 # banking-api
+
+```mermaid
 graph TD
     A[Frontend] -->|Demande| B[API Gateway]
     B --> C[Core Banking]
@@ -6,6 +8,7 @@ graph TD
     D --> E[(Credit DB)]
     D --> F[Scoring API]
     C --> D
+```
 
 
 
