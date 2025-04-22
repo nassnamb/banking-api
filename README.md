@@ -8,6 +8,7 @@ graph TD
     D --> E[(Credit DB)]
     D --> F[Scoring API]
     C --> D
+    c --> G[(Core Banking DB)]
 ```
 
 
